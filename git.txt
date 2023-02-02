@@ -1,0 +1,59 @@
+Git is a version control system (distributed) that helps to manage projects, eg, the files and folders and any changes that are made to them.
+Git is useful for projects that have multiple contributors, to avoid conflicts of updates to files and folder structures.
+
+It also helps with uploading and downloading (aptly named 'push'-ing and 'pull'-ing) of said projects.
+
+To get started with git practically, head over to https://git-scm.com/downloads and install your supported version.
+
+Once successfully installed, open a new git bash window (you can search for bash under apps), and type in 'git -v'.
+This command is used to check the version of git installed, and returns the current version if installation was okay, otherwise there will be an error.
+
+'-v' is referred to as a flag, and there are many other flags, notably prefixed by either a hyphen ('-') or a double hyphen ('--'), and a string with the command name to run 'as flag'.
+Examples of other flags include '-m' (for tagging a commit with a message), '-hard', '--soft', '--mixed' (all are used to revert changes or undo commits (previously tagged with -m flag))
+Further details about git commands and flags will be included later, and also made available in our upcoming tutorial site
+
+To start keeping track of changes to your project stucture, initialize git on your root folder where you want to start tracking.
+Eg (In "'My computer' > 'My project' > 'My folder'", you can choose to track 'My project' or 'My folder', whichever the case, you will initialize git on that folder).
+To initialize, run the command 'git init', which returns a message describing that git has been initialized in an empty repository, meaning no previous git tracking was on the folder (repository).
+Based on the changes you make, you can review changes, stash/ ignore changes, commit changes etc. All these are done using git commands, that I will get into later.
+
+Assuming though, that your changes are correct, and you need to sync them with the remote (hosted) version, you would follow the below sequence of commands
+
+'git add .'
+
+Somewhere at this point, you can decide to switch branches (a branch can be described as an independent flow of updates that do not affect updates in another flow or branch)
+For example, an authentication program can have different work-flows for signing up and another for logging in, that do not interfere with each other etc.
+So if you want to make more updates but not change the current project structure (maybe for testing etc), you move to a new branch, and when you come back to your current one, it will be just as you left it, and can only be updated by 'merge'-ing the branches to be synced.
+
+To move to a new branch:
+
+If it is a new branch, 'git checkout -b <my_branch>'
+
+If it already exists, 'git checkout <my_branch>'
+
+You can see the difference where we include a '-b' flag, that instructs git that this is a new branch we are creating, otherwise it will return an error if by default it doesn't find a branch with that name.
+
+The above adds all changes, ready for commit. At this point, changes can be made to project structure without affecting the commit tree. Any files or folders that have been set to be ignored will not be added to the staging area.
+The '.' (dot) means that we want to stage all files and folders. To stage only specific files and/ or folders, we will write
+
+'git add file_one folder_one' etc (separated by a whitespace, no comma etc)
+
+Then, to commit our changes and create a new snapshot of the project, and by this point, these changes are ready to be uploded ('push'-ed) to the remote hosting (like github)
+
+"git commit -m '<your commit message>'"
+
+As you can see, we are calling a command passing it a flag. This flag, '-m' is mandatory for commits, and creates a tag ot title or description about this commit. It can be anything you want, although there are standards that are recommended for commit messages.
+
+Finally, we want to upload our changes:
+
+'git push origin <branch name>'
+
+The above works after we have added a remote repository to our local git, otherwise the remote url also works.
+
+In the case of cloning repositories from remote, git already has the remote set automatically, otherwise you have to add it manually with 'git remote add origin <remote_url.git>'
+
+
+
+
+
+MORE LATER....
